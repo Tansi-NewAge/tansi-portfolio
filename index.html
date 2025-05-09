@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tansi – Personal Portfolio</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <meta name="description" content="Tansi's portfolio – Web Developer, Creative Thinker, Lifelong Learner." />
+  <meta name="keywords" content="Tansi, Web Developer, Portfolio, HTML, CSS, JavaScript" />
+  <meta name="author" content="Tansi" />
+  <meta property="og:title" content="Tansi – Portfolio" />
+  <meta property="og:image" content="tansi.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts and Libraries -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Styles -->
+  <style>
+    :root {
+      --main-color: #FF6B6B;
+      --accent-color: #4ECDC4;
+      --highlight-color: #FFE66D;
+      --bg-color: #fdfdfd;
+      --text-color: #222;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --glass-blur: 12px;
+      --border-radius: 18px;
+    }
+
+    [data-theme='dark'] {
+      --bg-color: #121212;
+      --text-color: #F8F8F2;
+      --card-bg: rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.4s, color 0.4s;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--main-color), var(--accent-color));
+      color: white;
+      text-align: center;
+      padding: 100px 20px 60px;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: var(--main-color);
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background: var(--highlight-color);
+    }
+
+    .profile-pic {
+      width: 140px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      margin-bottom: 40px;
+    }
+
+    nav {
+      background-color: var(--main-color);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 18px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(var(--glass-blur));
+      padding: 25px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s;
+      margin-bottom: 30px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .resume-download {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .resume-download a {
+      background: var(--main-color);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .resume-download a:hover {
+      background: var(--accent-color);
+    }
+
+    .social-icons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      margin: 0 12px;
+      font-size: 2rem;
+      color: var(--main-color);
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--accent-color);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    form input, form textarea {
+      width: 90%;
+      max-width: 500px;
+      padding: 14px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    form button {
+      background-color: var(--main-color);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    form button:hover {
+      background-color: var(--accent-color);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: var(--main-color);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    <img src="tansi.jpg" alt="Tansi" class="profile-pic" loading="lazy" />
+    <h1>Tansi</h1>
+    <p>Web Developer | Creative Thinker | Lifelong Learner</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#blog">Blog</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about" data-aos="fade-up">
+      <h2>About Me</h2>
+      <div class="card">
+        <p>Hello! I’m Tansi, a passionate full-stack web developer. I love turning ideas into digital reality using modern web technologies. I focus on creating clean, responsive, and engaging experiences for users across all devices.</p>
+      </div>
+      <div class="resume-download">
+        <a href="Tansi_Resume.pdf" download>Download My Resume</a>
+      </div>
+    </section>
+
+    <section id="projects" data-aos="fade-up">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <!-- Repeat structure for each project -->
+        <div class="card">
+          <h3>Landing Page</h3>
+          <img src="landing-page.jpg" alt="Landing Page" loading="lazy" />
+          <p>A modern landing page built with HTML, CSS & JS.</p>
+          <a href="#">GitHub</a> | <a href="#">Live Demo</a>
+        </div>
+        <div class="card">
+          <h3>Weather App</h3>
+          <img src="weather-app.jpg" alt="Weather App" loading="lazy" />
+          <p>Shows live weather using OpenWeatherMap API.</p>
+          <a href="#">GitHub</a> | <a href="#">Live Demo</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" data-aos="fade-up">
+      <h2>Skills</h2>
+      <div class="card">
+        <ul>
+          <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React.js, Tailwind CSS</li>
+          <li><strong>Backend:</strong> Node.js, Express.js, MongoDB, PostgreSQL</li>
+          <li><strong>Tools:</strong> Git, GitHub, Figma, VS Code, Netlify, Vercel</li>
+          <li><strong>Other:</strong> REST APIs, Responsive Design, Accessibility (WCAG), SEO</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="experience" data-aos="fade-up">
+      <h2>Experience</h2>
+      <div class="card">
+        <h3>Full Stack Developer Intern – Tech Solutions Inc.</h3>
+        <p><em>Jan 2024 – Jun 2024</em></p>
+        <p>Worked on internal tools using React and Express, optimized UI performance by 30%.</p>
+      </div>
+      <div class="card">
+        <h3>Freelance Web Developer</h3>
+        <p><em>Jul 2023 – Dec 2023</em></p>
+        <p>Developed 10+ websites for clients using WordPress and custom HTML/CSS/JS.</p>
+      </div>
+    </section>
+
+    <section id="blog" data-aos="fade-up">
+      <h2>Blog & Writing</h2>
+      <div class="card">
+        <h3>10 Tips for Clean Web Design</h3>
+        <p>Explore best practices to keep your code and UI clean, modular, and maintainable.</p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="card">
+        <h3>Why Accessibility Matters</h3>
+        <p>Discussing WCAG, ARIA roles, and making the web inclusive for everyone.</p>
+        <a href="#">Read More</a>
+      </div>
+    </section>
+
+    <section id="testimonials" data-aos="fade-up">
+      <h2>Testimonials</h2>
+      <div class="card">
+        <p>"Tansi is incredibly talented and dedicated to his craft. Working with him was a pleasure!" – Mentor</p>
+      </div>
+      <div class="card">
+        <p>"He brought our vision to life with professionalism and creativity." – Team Member</p>
+      </div>
+    </section>
+
+    <section id="faq" data-aos="fade-up">
+      <h2>Frequently Asked Questions</h2>
+      <div class="card">
+        <h3>Do you work remotely?</h3>
+        <p>Yes, I am available for both remote and on-site collaborations.</p>
+      </div>
+      <div class="card">
+        <h3>What are your hourly rates?</h3>
+        <p>Rates depend on project complexity. Contact me for a quote.</p>
+      </div>
+    </section>
+
+    <section id="contact" data-aos="fade-up">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:tansichukwuma@yahoo.com">tansichukwuma@yahoo.com</a></p>
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tansi. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', currentTheme === 'light' ? 'dark' : 'light');
+    }
+  </script>
+</body>
+</html>
+<img src="tansi.jpg" alt="Tansi" class="profile-pic" loading="lazy" />
